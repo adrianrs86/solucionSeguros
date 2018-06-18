@@ -1,0 +1,90 @@
+<div class="container">           
+  <form name="formPoliza">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" maxlength="50" required ng-model="modeloPoliza.nombre">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Descripción</label>
+        <input type="text" maxlength="500" required ng-model="modeloPoliza.descripcion">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>% Cobertura</label>
+        <input type="number" max="100" required ng-model="modeloPoliza.porcentajeCobertura">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Inicio vigencia</label>
+        <input type="date" max="100" required ng-model="modeloPoliza.inicioVigencia">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Periodo cobertura</label>
+        <input type="number" maxlength="100" required ng-model="modeloPoliza.periodoCobertura">
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Precio póliza</label>
+        <input type="number" max="99999999" required ng-model="modeloPoliza.precio">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Tipo riesgo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <select ng-options="option.text for option in riesgos" ng-model="modeloPoliza.riesgo" required></select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Tipo cubrimiento</label>
+        <select ng-options="option.text for option in cubrimientos" ng-model="modeloPoliza.cubrimiento" required></select>
+      </div>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-12">
+        <button type="button" class="btn btn-primary" ng-click="guardar()">Guardar</button>
+        <button type="button" class="btn btn-danger" ng-click="cancelar()">Cancelar</button>
+    </div>
+  </form>
+  <br>
+  <br>
+  <hr/>
+  <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th>Poliza</th>
+          <th>Cubrimiento</th>
+          <th>Riesgo</th>
+          <th>% Cobertura</th>
+          <th>Precio</th>
+          <!--<th>Inicio Vigencia</th>-->
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="poliza in polizas">
+          <td>{{poliza.Nombre}}</td>
+          <td>{{poliza.NombreTipoCubrimiento}}</td>
+          <td>{{poliza.NombreTipoRiesgo}}</td>
+          <td>{{poliza.PorcentajeCobertura}}</td>
+          <td>{{poliza.Precio}}</td>
+          <!--<td>{{poliza.Vigencia}}</td>-->
+          <td>
+            <button type="button" class="btn btn-link" ng-click="editar($index)">Editar</button>
+            <button type="button" class="btn btn-link" ng-click="eliminar($index)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table> 
+</div>

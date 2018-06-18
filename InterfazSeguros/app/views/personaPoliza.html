@@ -1,0 +1,38 @@
+<div class="container">
+    <form name="formAsignacionPoliza">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Poliza &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select ng-options="option.Nombre for option in polizas" ng-model="modeloPersonPolizas.poliza" required></select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Identificación usuario</label>
+                <input type="text" maxlength="10" required ng-model="modeloPersonPolizas.personaId">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <br>
+            <button type="button" class="btn btn-primary" ng-click="asignarPoliza()">Asignar</button>
+        </div>
+    </form>
+
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+            <th>Poliza</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="poliza in polizasPersona">
+            <td>{{poliza.NombrePoliza}}</td>
+            <td>
+                <button type="button" class="btn btn-link" ng-click="eliminar($index)">Eliminar</button>
+            </td>
+            </tr>
+        </tbody>
+        </table> 
+</div>
+
