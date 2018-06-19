@@ -22,7 +22,7 @@
         }
 
         [TestMethod]
-        private void ValidarRiesgoAlto_Y_CoverturaMayor_A_50()
+        public void ValidarRiesgoAlto_Y_CoverturaMayor_A_50()
         {
             //Arrange
             var poliza = new Poliza()
@@ -39,7 +39,7 @@
         }
 
         [TestMethod]
-        private void ValidarRiesgoAlto_Y_CoverturaMenor_A_50()
+        public void ValidarRiesgoAlto_Y_CoverturaMenor_A_50()
         {
             //Arrange
             var poliza = new Poliza()
@@ -58,7 +58,7 @@
         }
 
         [TestMethod]
-        private void Validar_Riesgo_No_Alto()
+        public void Validar_Riesgo_No_Alto()
         {
             //Arrange
             var poliza = new Poliza()
