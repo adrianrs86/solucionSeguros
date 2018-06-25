@@ -6,5 +6,7 @@
     {
         bool Crear(Dominio.Dtos.PersonaPolizas.PersonaPolizas personaPoliza);
         List<Dominio.Dtos.PersonaPolizas.PersonaPolizaRegistro> ObtenerPorPersona(string personaId);
+
+        bool Eliminar(int id);
     }
 }

@@ -25,5 +25,12 @@
         {
             return this.personaPolizaRepositorio.ObtenerPorPersona(personaId);
         }
+
+        public Dominio.Dtos.PersonaPolizas.RespuestaPersonaPolizas Eliminar(int id)
+        {
+            var respuesta = new Dominio.Dtos.PersonaPolizas.RespuestaPersonaPolizas();
+            respuesta.Valido = this.personaPolizaRepositorio.Eliminar(id);
+            return respuesta;
+        }
     }
 }

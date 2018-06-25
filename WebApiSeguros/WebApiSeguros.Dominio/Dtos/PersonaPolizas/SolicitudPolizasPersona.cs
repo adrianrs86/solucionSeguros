@@ -8,5 +8,8 @@
     {
         [DataMember(Name = "personaId")]
         public string PersonaId { get; set; }
+
+        [DataMember(Name = "id")]
+        public int Id { get; set; }
     }
 }

@@ -42,5 +42,18 @@
 
             return lista;
         }
+
+        public bool Eliminar(int id)
+        {
+            int filas = 0;
+            using (var dbContext = new SegurosEntities())
+            {
+                var registro = dbContext.PersonaPolizas.First(x => x.Id == id);
+                dbContext.PersonaPolizas.Remove(registro);
+                filas = dbContext.SaveChanges();
+            }
+
+            return filas > 0 ? true : false;
+        }
     }
 }

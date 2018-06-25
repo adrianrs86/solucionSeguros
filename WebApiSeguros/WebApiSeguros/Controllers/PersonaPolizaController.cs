@@ -55,5 +55,20 @@
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, string.Format(MensajesUsuario.ErrorGeneral, ex.Message));
             }
         }
+
+        [HttpDelete]
+        public HttpResponseMessage Eliminar(SolicitudPolizasPersona solicitud)
+        {
+            try
+            {
+                var respuesta = new RespuestaPersonaPolizas();
+                respuesta = personaPolizasNegocio.Eliminar(solicitud.Id);
+                return Request.CreateResponse<RespuestaPersonaPolizas>(HttpStatusCode.OK, respuesta);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, string.Format(MensajesUsuario.ErrorGeneral, ex.Message));
+            }
+        }
     }
 }

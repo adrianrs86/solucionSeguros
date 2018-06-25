@@ -38,10 +38,17 @@ angular.module('interfazSegurosApp')
       if($scope.formAsignacionPoliza.$valid){
         $scope.modeloPersonPolizas.polizaId = $scope.modeloPersonPolizas.poliza.Id;
         PersonaPolizasService.crear($scope.modeloPersonPolizas).then(function(resultado){
-          consultarPolizasPorPersona($scope.modeloPersonPolizas.personaId)
+          consultarPolizasPorPersona($scope.modeloPersonPolizas.personaId);
         });
       }
     };
+
+    $scope.eliminar = function(indice){
+      var registro = $scope.polizasPersona[indice];
+      PersonaPolizasService.eliminar({"id": registro.Id}).then(function(respuesta){
+        consultarPolizasPorPersona($scope.modeloPersonPolizas.personaId);
+      });
+    }
 
     function init(){
       consultarPolizas();
